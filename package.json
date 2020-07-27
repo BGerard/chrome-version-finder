@@ -1,0 +1,17 @@
+{
+  "name": "chrome-version-finder",
+  "version": "1.0.0",
+  "description": "Find old Chromium packages",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
+    "compare-versions": "^3.6.0",
+    "lodash": "^4.17.19",
+    "node-fetch": "^2.6.0"
+  }
+}
