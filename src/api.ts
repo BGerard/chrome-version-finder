@@ -27,8 +27,8 @@ export interface PackageItem {
   mediaLink: string;
   name: string;
   size: string;
-  updated: string;
-  metadata: {
+  updated?: string;
+  metadata?: {
     "cr-commit-position": string;
     "cr-commit-position-number": string;
     "cr-git-commit": string;

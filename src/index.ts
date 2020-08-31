@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import { isString } from "lodash";
 import { VersionTags } from "./versionFinder";
 import { getAllVersionTags, getBasePosition } from "./versionFinder";
