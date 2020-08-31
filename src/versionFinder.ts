@@ -1,20 +1,16 @@
-import fetch from "node-fetch";
 import * as cheerio from "cheerio";
 import { chain } from "lodash";
 import * as compareVersions from "compare-versions";
+import { BasePosition, fetchBasePosition, fetchChromiumTags } from "./api";
 
-const isChromiumVersion = (version: string): boolean =>
-  /\d+\.\d+\.\d+\.\d+/.test(version);
+const isChromiumVersion = (version: string): boolean => /\d+\.\d+\.\d+\.\d+/.test(version);
 
 export interface VersionTags {
   [key: string]: string;
 }
 
-export const getAllVersionTags = async (): Promise<VersionTags> => {
-  const res = await fetch(
-    "https://chromium.googlesource.com/chromium/src.git/+refs"
-  );
-  const html = await res.text();
+export const getAllVersionTags = async (fetchTags: typeof fetchChromiumTags): Promise<VersionTags> => {
+  const html = await fetchTags();
   const $ = cheerio.load(html);
   const set = $(".RefList").get(1);
   const setName = $(set).find("h3").text();
@@ -30,10 +26,7 @@ export const getAllVersionTags = async (): Promise<VersionTags> => {
       .filter(isChromiumVersion)
       .sort(compareVersions)
       .groupBy((versionString: string) => versionString.split(".")[0])
-      .map((versionParts: string[], versionString: string) => [
-        versionString,
-        versionParts[0],
-      ])
+      .map((versionParts: string[], versionString: string) => [versionString, versionParts[0]])
       .fromPairs()
       .value();
   } else {
@@ -42,9 +35,6 @@ export const getAllVersionTags = async (): Promise<VersionTags> => {
 };
 
 export const getBasePosition = async (versionTag: string): Promise<number> => {
-  const res = await fetch(
-    `https://omahaproxy.appspot.com/deps.json?version=${versionTag}`
-  );
-  const { chromium_base_position } = await res.json();
-  return chromium_base_position;
+  const { chromium_base_position }: BasePosition = await fetchBasePosition(versionTag);
+  return parseInt(chromium_base_position, 10);
 };
