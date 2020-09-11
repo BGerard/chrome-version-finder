@@ -2,7 +2,18 @@
   "name": "chrome-version-finder",
   "version": "1.0.0",
   "description": "Find old Chromium packages",
-  "main": "src/index.ts",
+  "keywords": [
+    "chrome",
+    "chromium",
+    "package",
+    "finder"
+  ],
+  "homepage": "https://github.com/BGerard/chrome-version-finder",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BGerard/chrome-version-finder.git"
+  },
+  "main": "lib/index.js",
   "scripts": {
     "build": "tsc",
     "test": "mocha --require ts-node/register \"test/unit/**/*.ts\"",
@@ -11,7 +22,7 @@
   "bin": {
     "chrome-version-finder": "./lib/index.js"
   },
-  "author": "",
+  "author": "Ben Gerard",
   "license": "ISC",
   "dependencies": {
     "cheerio": "^1.0.0-rc.3",
