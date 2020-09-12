@@ -23,7 +23,7 @@
     "chromium-version-finder": "./lib/index.js"
   },
   "author": "Ben Gerard",
-  "license": "ISC",
+  "license": "Apache-2.0",
   "dependencies": {
     "cheerio": "^1.0.0-rc.3",
     "compare-versions": "^3.6.0",
