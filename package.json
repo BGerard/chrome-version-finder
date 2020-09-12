@@ -1,7 +1,7 @@
 {
-  "name": "chrome-version-finder",
+  "name": "chromium-version-finder",
   "version": "1.0.0",
-  "description": "Find old Chromium packages",
+  "description": "npFind old Chromium packages",
   "keywords": [
     "chrome",
     "chromium",
@@ -20,7 +20,7 @@
     "package": "node --require ts-node/register scripts/package.ts"
   },
   "bin": {
-    "chrome-version-finder": "./lib/index.js"
+    "chromium-version-finder": "./lib/index.js"
   },
   "author": "Ben Gerard",
   "license": "ISC",
