@@ -1,7 +1,7 @@
 {
   "name": "chromium-version-finder",
   "version": "1.0.0",
-  "description": "npFind old Chromium packages",
+  "description": "Find old Chromium packages",
   "keywords": [
     "chrome",
     "chromium",
@@ -13,7 +13,7 @@
     "type": "git",
     "url": "https://github.com/BGerard/chrome-version-finder.git"
   },
-  "main": "lib/index.js",
+  "main": "lib/cli.js",
   "scripts": {
     "build": "tsc",
     "test": "mocha --require ts-node/register \"test/unit/**/*.ts\"",
